@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Final Verdict | AIFORCE</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="fade-page">
+
+<header>
+
+<div class="logo">
+🛡 AIFORCE
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="casebrief.html">Case Brief</a>
+<a href="suspects.html">Suspects</a>
+<a href="evidence.html">Evidence</a>
+<a href="ai.html">AI Lab</a>
+<a href="verdict.html">Verdict</a>
+
+</nav>
+
+</header>
+
+<br><br><br><br>
+
+<div id="clock" class="clock"></div>
+
+<section class="mission">
+
+<h2>FINAL VERDICT</h2>
+
+<p>
+
+You have completed the investigation.
+
+Review all evidence before submitting your final decision.
+
+</p>
+
+</section>
+
+<section class="dashboard">
+
+<div class="card">
+
+<h3>✔ CCTV</h3>
+
+<p>Evidence Verified</p>
+
+</div>
+
+<div class="card">
+
+<h3>✔ Phone Records</h3>
+
+<p>Recovered Successfully</p>
+
+</div>
+
+<div class="card">
+
+<h3>✔ Voice Analysis</h3>
+
+<p>AI Match Complete</p>
+
+</div>
+
+<div class="card">
+
+<h3>✔ Access Logs</h3>
+
+<p>Timeline Verified</p>
+
+</div>
+
+</section>
+
+<section class="mission">
+
+<h2>AI INVESTIGATION SUMMARY</h2>
+
+<div class="glass" style="padding:35px;max-width:900px;margin:auto;">
+
+<p>✔ CCTV confirms unauthorized laboratory entry.</p>
+
+<br>
+
+<p>✔ Access logs perfectly match CCTV timestamps.</p>
+
+<br>
+
+<p>✔ Voice recognition strongly identifies one suspect.</p>
+
+<br>
+
+<p>✔ Phone records reveal suspicious communication.</p>
+
+<br>
+
+<p style="color:#00ff88;font-size:22px;">
+
+Overall AI Confidence : 93%
+
+</p>
+
+</div>
+
+</section>
+
+<section class="verdict">
+
+<h2>Select the Culprit</h2>
+
+<select id="culprit">
+
+<option value="">Choose Suspect</option>
+
+<option value="arjun">Dr. Arjun Mehta</option>
+
+<option value="kavya">Kavya Rao</option>
+
+<option value="rahul">Rahul Verma</option>
+
+<option value="aditya">Aditya Nair</option>
+
+</select>
+
+<br><br>
+
+<button onclick="checkVerdict()">
+
+SUBMIT VERDICT
+
+</button>
+
+</section>
+
+<section class="mission">
+
+<h2>AI Recommendation</h2>
+
+<div class="glass" style="padding:30px;max-width:900px;margin:auto;">
+
+<p>
+
+The AI recommends carefully comparing:
+
+</p>
+
+<br>
+
+<p>📹 CCTV Footage</p>
+
+<p>🎤 Voice Recording</p>
+
+<p>🔑 Access Logs</p>
+
+<p>📱 Phone Records</p>
+
+<br>
+
+<p>
+
+The suspect with the strongest evidence should be selected.
+
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+AI FORENSICS COMMAND CENTER | FINAL VERDICT
+
+</p>
+
+</footer>
+
+<script>
+
+function checkVerdict(){
+
+const choice=document.getElementById("culprit").value;
+
+if(choice==="arjun"){
+
+window.location.href="result.html";
+
+}
+
+else if(choice===""){
+
+alert("Please select a suspect.");
+
+}
+
+else{
+
+alert("❌ Incorrect Verdict!\n\nAI suggests reviewing the CCTV footage and Access Logs again.");
+
+}
+
+}
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

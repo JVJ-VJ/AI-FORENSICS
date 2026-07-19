@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Suspect Database | AIFORCE</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="fade-page">
+
+<header>
+
+<div class="logo">
+🛡 AIFORCE
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="casebrief.html">Case Brief</a>
+<a href="suspects.html">Suspects</a>
+<a href="evidence.html">Evidence</a>
+<a href="ai.html">AI Lab</a>
+<a href="verdict.html">Verdict</a>
+
+</nav>
+
+</header>
+
+<br><br><br><br>
+
+<div id="clock" class="clock"></div>
+
+<section class="mission">
+
+<h2>SUSPECT DATABASE</h2>
+
+<p>
+
+AI has identified four individuals with authorized access to the laboratory.
+
+Review every profile carefully before analysing the evidence.
+
+</p>
+
+</section>
+
+<section class="suspects">
+
+<!-- Suspect 1 -->
+
+<div class="suspect-card">
+
+<img src="images/suspects/arjun.jpg">
+
+<h3>Dr. Arjun Mehta</h3>
+
+<p>Research Scientist</p>
+
+<p><b>Access Level:</b> 5</p>
+
+<p><b>AI Suspicion:</b> 93%</p>
+
+<p class="danger">HIGH RISK</p>
+
+<button onclick="showProfile('arjun')">
+
+View Profile
+
+</button>
+
+</div>
+
+<!-- Suspect 2 -->
+
+<div class="suspect-card">
+
+<img src="images/suspects/kavya.jpg">
+
+<h3>Kavya Rao</h3>
+
+<p>AI Software Engineer</p>
+
+<p><b>Access Level:</b> 4</p>
+
+<p><b>AI Suspicion:</b> 58%</p>
+
+<p class="warning">MEDIUM RISK</p>
+
+<button onclick="showProfile('kavya')">
+
+View Profile
+
+</button>
+
+</div>
+
+<!-- Suspect 3 -->
+
+<div class="suspect-card">
+
+<img src="images/suspects/rahul.jpg">
+
+<h3>Rahul Verma</h3>
+
+<p>Security Officer</p>
+
+<p><b>Access Level:</b> 3</p>
+
+<p><b>AI Suspicion:</b> 34%</p>
+
+<p class="active">LOW RISK</p>
+
+<button onclick="showProfile('rahul')">
+
+View Profile
+
+</button>
+
+</div>
+
+<!-- Suspect 4 -->
+
+<div class="suspect-card">
+
+<img src="images/suspects/aditya.jpg">
+
+<h3>Aditya Nair</h3>
+
+<p>Hardware Technician</p>
+
+<p><b>Access Level:</b> 2</p>
+
+<p><b>AI Suspicion:</b> 42%</p>
+
+<p class="warning">MEDIUM RISK</p>
+
+<button onclick="showProfile('aditya')">
+
+View Profile
+
+</button>
+
+</div>
+
+</section>
+
+<section class="mission">
+
+<h2>PROFILE DETAILS</h2>
+
+<div id="profileBox" class="glass" style="padding:35px; max-width:900px; margin:auto;">
+
+<p>
+
+Select a suspect to view their detailed profile.
+
+</p>
+
+</div>
+
+</section>
+
+<section style="text-align:center;padding-bottom:80px;">
+
+<button onclick="window.location.href='evidence.html'">
+
+OPEN EVIDENCE LOCKER
+
+</button>
+
+</section>
+
+<footer>
+
+<p>
+
+AI FORENSICS COMMAND CENTER | SUSPECT DATABASE
+
+</p>
+
+</footer>
+
+<script>
+
+function showProfile(name){
+
+const box=document.getElementById("profileBox");
+
+if(name==="arjun"){
+
+box.innerHTML=`
+
+<h2 style="color:#00E5FF;">Dr. Arjun Mehta</h2>
+
+<p><b>Role:</b> Lead Research Scientist</p>
+
+<p><b>Access Level:</b> Level 5</p>
+
+<p><b>Last Seen:</b> 7:58 PM</p>
+
+<p><b>Alibi:</b> Claimed to be finishing documentation.</p>
+
+<p><b>Motive:</b> Financial pressure and ownership dispute over Project AETHER.</p>
+
+<p><b>AI Analysis:</b> Highest probability based on timeline and laboratory access.</p>
+
+`;
+
+}
+
+if(name==="kavya"){
+
+box.innerHTML=`
+
+<h2 style="color:#00E5FF;">Kavya Rao</h2>
+
+<p><b>Role:</b> AI Software Engineer</p>
+
+<p><b>Access Level:</b> Level 4</p>
+
+<p><b>Last Seen:</b> 7:35 PM</p>
+
+<p><b>Alibi:</b> Working remotely after leaving the lab.</p>
+
+<p><b>Motive:</b> Wanted recognition for her AI algorithms.</p>
+
+<p><b>AI Analysis:</b> Communication records require verification.</p>
+
+`;
+
+}
+
+if(name==="rahul"){
+
+box.innerHTML=`
+
+<h2 style="color:#00E5FF;">Rahul Verma</h2>
+
+<p><b>Role:</b> Security Officer</p>
+
+<p><b>Access Level:</b> Level 3</p>
+
+<p><b>Last Seen:</b> Monitoring CCTV.</p>
+
+<p><b>Alibi:</b> On duty during the incident.</p>
+
+<p><b>Motive:</b> None identified.</p>
+
+<p><b>AI Analysis:</b> Low probability.</p>
+
+`;
+
+}
+
+if(name==="aditya"){
+
+box.innerHTML=`
+
+<h2 style="color:#00E5FF;">Aditya Nair</h2>
+
+<p><b>Role:</b> Hardware Technician</p>
+
+<p><b>Access Level:</b> Level 2</p>
+
+<p><b>Last Seen:</b> Repairing Lab Equipment.</p>
+
+<p><b>Alibi:</b> Maintenance Log available.</p>
+
+<p><b>Motive:</b> Curious about prototype hardware.</p>
+
+<p><b>AI Analysis:</b> Moderate probability.</p>
+
+`;
+
+}
+
+}
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

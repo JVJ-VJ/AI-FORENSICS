@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI FORENSICS | Investigator Login</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        window.firebaseApp = initializeApp(firebaseConfig);
+    </script>
+
+    <!-- MediaPipe -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/face_detection.js"></script>
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+
+            <h1>AI FORENSICS</h1>
+
+            <span>Investigator Authentication System</span>
+
+        </div>
+
+        <div class="header-status">
+
+            <div class="status-item">
+                <span class="dot"></span>
+                SYSTEM ONLINE
+            </div>
+
+            <div id="clock">00:00:00</div>
+
+        </div>
+
+    </header>
+
+    <!-- ================= MAIN ================= -->
+
+    <main>
+
+        <!-- CAMERA PANEL -->
+
+        <section class="camera-panel">
+
+            <div class="panel-title">
+                LIVE BIOMETRIC CAMERA
+            </div>
+
+            <div class="camera-container">
+
+                <video
+                    id="video"
+                    autoplay
+                    playsinline
+                    muted>
+                </video>
+
+                <canvas id="overlay"></canvas>
+
+                <!-- Scanner Overlay -->
+
+                <div id="scanOverlay">
+
+                    <div id="scanShade"></div>
+
+                    <div id="scanLine"></div>
+
+                    <div id="faceBox"></div>
+
+                    <div id="cameraFlash"></div>
+
+                    <div id="scanText">
+                        WAITING FOR FACE
+                    </div>
+
+                    <div id="scanPercent">
+                        0%
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="camera-footer">
+
+                <button id="scanBtn">
+                    BEGIN BIOMETRIC SCAN
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- RIGHT PANEL -->
+
+        <aside class="status-panel">
+
+            <div class="panel-title">
+                AI SYSTEM STATUS
+            </div>
+
+            <div class="status-grid">
+
+                <div class="status-row">
+                    <span>Camera</span>
+                    <span id="cameraStatus">ONLINE</span>
+                </div>
+
+                <div class="status-row">
+                    <span>Face Detection</span>
+                    <span id="faceStatus">WAITING</span>
+                </div>
+
+                <div class="status-row">
+                    <span>AI Engine</span>
+                    <span id="aiStatus">READY</span>
+                </div>
+
+                <div class="status-row">
+                    <span>Database</span>
+                    <span id="dbStatus">CONNECTED</span>
+                </div>
+
+                <div class="status-row">
+                    <span>Confidence</span>
+                    <span id="confidence">--%</span>
+                </div>
+
+                <div class="status-row">
+                    <span>FPS</span>
+                    <span id="fps">30</span>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="analysis-title">
+                LIVE AI ANALYSIS
+            </div>
+
+            <div id="analysis">
+
+                Waiting for investigator...
+
+            </div>
+
+            <hr>
+
+            <div class="investigator-card">
+
+                <h3>SESSION</h3>
+
+                <div class="info-row">
+                    <span>Status</span>
+                    <span id="sessionStatus">
+                        NOT AUTHENTICATED
+                    </span>
+                </div>
+
+                <div class="info-row">
+                    <span>Login Time</span>
+                    <span id="loginTime">
+                        --
+                    </span>
+                </div>
+
+                <div class="info-row">
+                    <span>Photo</span>
+                    <span>
+                        Pending
+                    </span>
+                </div>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div id="footerMessage">
+
+            Awaiting Investigator Authentication...
+
+        </div>
+
+        <div class="progress">
+
+            <div id="progressBar"></div>
+
+        </div>
+
+    </footer>
+
+</div>
+
+<!-- Hidden Canvas for Photo Capture -->
+
+<canvas
+    id="captureCanvas"
+    style="display:none;">
+</canvas>
+
+<!-- Main JavaScript -->
+
+<script src="js/login.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Evidence Locker | AIFORCE</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="fade-page">
+
+<header>
+
+<div class="logo">
+
+🛡 AIFORCE
+
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="casebrief.html">Case Brief</a>
+
+<a href="suspects.html">Suspects</a>
+
+<a href="evidence.html">Evidence</a>
+
+<a href="ai.html">AI Lab</a>
+
+<a href="verdict.html">Verdict</a>
+
+</nav>
+
+</header>
+
+<br><br><br><br>
+
+<div id="clock" class="clock"></div>
+
+<section class="mission">
+
+<h2>DIGITAL EVIDENCE LOCKER</h2>
+
+<p>
+
+All recovered evidence has been secured.
+
+Click on any evidence file to inspect it.
+
+</p>
+
+</section>
+
+<section class="evidence-grid">
+
+<div class="evidence-card" onclick="openEvidence('cctv')">
+
+<div class="evidence-icon">📹</div>
+
+<h3>CCTV FOOTAGE</h3>
+
+<p>Security Camera Recording</p>
+
+</div>
+
+<div class="evidence-card" onclick="openEvidence('phone')">
+
+<div class="evidence-icon">📱</div>
+
+<h3>PHONE RECORDS</h3>
+
+<p>Recovered Messages</p>
+
+</div>
+
+<div class="evidence-card" onclick="openEvidence('voice')">
+
+<div class="evidence-icon">🎤</div>
+
+<h3>VOICE RECORDING</h3>
+
+<p>AI Voice Comparison</p>
+
+</div>
+
+<div class="evidence-card" onclick="openEvidence('logs')">
+
+<div class="evidence-icon">🔑</div>
+
+<h3>ACCESS LOGS</h3>
+
+<p>Door Entry Records</p>
+
+</div>
+
+<div class="evidence-card" onclick="openEvidence('docs')">
+
+<div class="evidence-icon">📄</div>
+
+<h3>DOCUMENTS</h3>
+
+<p>Research Files</p>
+
+</div>
+
+<div class="evidence-card" onclick="openEvidence('witness')">
+
+<div class="evidence-icon">👁</div>
+
+<h3>WITNESS</h3>
+
+<p>Witness Statement</p>
+
+</div>
+
+</section>
+
+<section class="mission">
+
+<h2>EVIDENCE DETAILS</h2>
+
+<div id="evidenceBox" class="glass" style="padding:35px;max-width:900px;margin:auto;">
+
+<p>
+
+Click an evidence card to inspect it.
+
+</p>
+
+</div>
+
+</section>
+
+<section style="text-align:center;padding-bottom:80px;">
+
+<button onclick="window.location.href='ai.html'">
+
+OPEN AI ANALYSIS
+
+</button>
+
+</section>
+
+<footer>
+
+<p>
+
+AI FORENSICS COMMAND CENTER | DIGITAL EVIDENCE LOCKER
+
+</p>
+
+</footer>
+
+<script>
+
+function openEvidence(type){
+
+let box=document.getElementById("evidenceBox");
+
+if(type==="cctv"){
+
+box.innerHTML=`
+
+<h2 style="color:#00E5FF;">📹 CCTV FOOTAGE</h2>
+
+<p><b>Time:</b> 7:58 PM</p>
+
+<p>Camera 3 captured Dr. Arjun entering the AI Lab after official closing hours.</p>
+
+<p>No other person entered after him.</p>
+
+<p style="color:#00ff88;"><b>AI Observation:</b> Suspicious movement detected.</p>
+
+`;
+
+}
+
+if(type==="phone"){
+
+box.innerHTML=`
+
+<h2 style="color:#00E5FF;">📱 PHONE RECORDS</h2>
+
+<p><b>Recovered Chat:</b></p>
+
+<p>Kavya: "Is everything ready?"</p>
+
+<p>Arjun: "Meet me after everyone leaves."</p>
+
+<p>Kavya: "Don't leave any traces."</p>
+
+<p style="color:#ffcc00;"><b>AI Observation:</b> Conversation requires investigation.</p>
+
+`;
+
+}
+
+if(type==="voice"){
+
+box.innerHTML=`
+
+<h2 style="color:#00E5FF;">🎤 VOICE ANALYSIS</h2>
+
+<p>AI compared laboratory audio with all suspects.</p>
+
+<p>Voice Match:</p>
+
+<p>Arjun - 93%</p>
+
+<p>Kavya - 61%</p>
+
+<p>Rahul - 15%</p>
+
+<p>Aditya - 22%</p>
+
+`;
+
+}
+
+if(type==="logs"){
+
+box.innerHTML=`
+
+<h2 style="color:#00E5FF;">🔑 ACCESS LOGS</h2>
+
+<table>
+
+<tr>
+
+<th>TIME</th>
+
+<th>USER</th>
+
+</tr>
+
+<tr>
+
+<td>7:58 PM</td>
+
+<td>Dr. Arjun</td>
+
+</tr>
+
+<tr>
+
+<td>7:35 PM</td>
+
+<td>Kavya</td>
+
+</tr>
+
+<tr>
+
+<td>6:52 PM</td>
+
+<td>Rahul</td>
+
+</tr>
+
+<tr>
+
+<td>6:28 PM</td>
+
+<td>Aditya</td>
+
+</tr>
+
+</table>
+
+`;
+
+}
+
+if(type==="docs"){
+
+box.innerHTML=`
+
+<h2 style="color:#00E5FF;">📄 RESEARCH DOCUMENT</h2>
+
+<p>
+
+Project AETHER
+
+Prototype Status : COMPLETE
+
+Estimated Value :
+
+₹25 Crore
+
+Access :
+
+Level 5 Only
+
+</p>
+
+`;
+
+}
+
+if(type==="witness"){
+
+box.innerHTML=`
+
+<h2 style="color:#00E5FF;">👁 WITNESS STATEMENT</h2>
+
+<p>
+
+"I saw someone wearing a white laboratory coat entering the restricted room just before 8 PM."
+
+</p>
+
+<p>
+
+"The person looked nervous."
+
+</p>
+
+`;
+
+}
+
+}
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

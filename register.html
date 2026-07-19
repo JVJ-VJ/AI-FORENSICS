@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI FORENSICS | Investigator Registration</title>
+
+    <link rel="stylesheet" href="css/register.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+
+            <h1>AI FORENSICS</h1>
+
+            <span>Investigator Registration Terminal</span>
+
+        </div>
+
+        <div class="header-right">
+
+            <div id="clock">00:00:00</div>
+
+        </div>
+
+    </header>
+
+    <!-- MAIN -->
+
+    <main>
+
+        <!-- LEFT PANEL -->
+
+        <section class="photo-panel">
+
+            <h2>INVESTIGATOR PHOTO</h2>
+
+            <div class="photo-box">
+
+                <img id="capturedImage" src="" alt="Investigator">
+
+            </div>
+
+            <div class="photo-status">
+
+                ✓ Face Successfully Verified
+
+            </div>
+
+        </section>
+
+        <!-- RIGHT PANEL -->
+
+        <section class="form-panel">
+
+            <h2>INVESTIGATOR DETAILS</h2>
+
+            <form id="registerForm">
+
+                <div class="input-group">
+
+                    <label>Investigator ID</label>
+
+                    <input
+                        type="text"
+                        id="investigatorId"
+                        readonly>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Rank</label>
+
+                    <select id="rank">
+
+                        <option>Inspector</option>
+
+                        <option>Sub Inspector</option>
+
+                        <option>Forensic Analyst</option>
+
+                        <option>Senior Investigator</option>
+
+                        <option>Chief Investigator</option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Department</label>
+
+                    <select id="department">
+
+                        <option>Cyber Crime</option>
+
+                        <option>Forensics</option>
+
+                        <option>Homicide</option>
+
+                        <option>Narcotics</option>
+
+                        <option>Intelligence</option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Phone</label>
+
+                    <input
+                        type="tel"
+                        id="phone">
+
+                </div>
+
+                <button
+                    type="submit"
+                    id="saveBtn">
+
+                    SAVE INVESTIGATOR
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div id="statusText">
+
+            Ready to Register Investigator
+
+        </div>
+
+    </footer>
+
+</div>
+
+<script type="module" src="js/register.js"></script>
+
+</body>
+
+</html>

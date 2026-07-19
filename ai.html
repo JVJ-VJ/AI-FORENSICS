@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Analysis | AIFORCE</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="fade-page">
+
+<header>
+
+<div class="logo">
+🛡 AIFORCE
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="casebrief.html">Case Brief</a>
+<a href="suspects.html">Suspects</a>
+<a href="evidence.html">Evidence</a>
+<a href="ai.html">AI Lab</a>
+<a href="verdict.html">Verdict</a>
+
+</nav>
+
+</header>
+
+<br><br><br><br>
+
+<div id="clock" class="clock"></div>
+
+<section class="mission">
+
+<h2>AI FORENSIC ANALYSIS CENTER</h2>
+
+<p>
+
+Artificial Intelligence is now analysing all collected evidence.
+
+Review the confidence scores before submitting your verdict.
+
+</p>
+
+</section>
+
+<section class="ai-panel">
+
+<div class="ai-box">
+
+<h2>AI ANALYSIS REPORT</h2>
+
+<div class="progress">
+
+<span>Face Recognition - 93%</span>
+
+<div class="progress-bar">
+
+<div class="progress-fill" style="width:93%"></div>
+
+</div>
+
+</div>
+
+<div class="progress">
+
+<span>Voice Match - 91%</span>
+
+<div class="progress-bar">
+
+<div class="progress-fill" style="width:91%"></div>
+
+</div>
+
+</div>
+
+<div class="progress">
+
+<span>Access Log Correlation - 97%</span>
+
+<div class="progress-bar">
+
+<div class="progress-fill" style="width:97%"></div>
+
+</div>
+
+</div>
+
+<div class="progress">
+
+<span>Timeline Match - 95%</span>
+
+<div class="progress-bar">
+
+<div class="progress-fill" style="width:95%"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="mission">
+
+<h2>AI DETECTIVE</h2>
+
+<p>
+
+Ask the AI about the investigation.
+
+Try asking:
+
+"Who is the main suspect?"
+
+"CCTV"
+
+"Phone"
+
+"Voice"
+
+"Prototype"
+
+</p>
+
+</section>
+
+<section style="text-align:center; padding:50px;">
+
+<input
+
+id="question"
+
+type="text"
+
+placeholder="Ask the AI Detective..."
+
+style="width:70%;padding:18px;font-size:18px;border-radius:10px;border:none;">
+
+<br><br>
+
+<button onclick="askAI()">
+
+ASK AI
+
+</button>
+
+<br><br>
+
+<div
+
+id="answer"
+
+class="glass"
+
+style="padding:25px;max-width:900px;margin:auto;">
+
+AI waiting for your question...
+
+</div>
+
+</section>
+
+<section class="mission">
+
+<h2>AI FINAL OBSERVATION</h2>
+
+<div class="glass" style="padding:35px; max-width:900px; margin:auto;">
+
+<p>
+
+✔ CCTV confirms one suspect entered after laboratory closing hours.
+
+</p>
+
+<br>
+
+<p>
+
+✔ Voice analysis strongly matches one suspect.
+
+</p>
+
+<br>
+
+<p>
+
+✔ Phone records reveal suspicious communication.
+
+</p>
+
+<br>
+
+<p>
+
+✔ Access logs perfectly match CCTV timestamps.
+
+</p>
+
+<br>
+
+<p style="color:#00ff88;font-size:22px;">
+
+AI Confidence:
+
+93%
+
+</p>
+
+</div>
+
+</section>
+
+<section class="mission">
+
+<h2>FORENSIC TERMINAL</h2>
+
+<div
+
+id="terminal"
+
+class="terminal">
+
+</div>
+
+</section>
+
+<section style="text-align:center;padding-bottom:80px;">
+
+<button onclick="window.location.href='verdict.html'">
+
+SUBMIT FINAL VERDICT
+
+</button>
+
+</section>
+
+<footer>
+
+<p>
+
+AI FORENSICS COMMAND CENTER | AI ANALYSIS
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
