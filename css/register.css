@@ -1,0 +1,359 @@
+/* ===========================================
+   AI FORENSICS
+   Investigator Registration
+=========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root{
+
+    --bg:#06101E;
+    --panel:#101C2E;
+    --cyan:#00E5FF;
+    --green:#00FF88;
+    --text:#F2F7FA;
+    --muted:#8EA6C5;
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body{
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+    font-family:Poppins,sans-serif;
+
+    color:var(--text);
+
+    background:
+    radial-gradient(circle at top,#10284A,#06101E 70%);
+
+}
+
+/* GRID */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background-image:
+
+    linear-gradient(rgba(0,229,255,.05) 1px,transparent 1px),
+
+    linear-gradient(90deg,rgba(0,229,255,.05) 1px,transparent 1px);
+
+    background-size:35px 35px;
+
+    pointer-events:none;
+
+}
+
+/* ===================================== */
+
+.dashboard{
+
+    width:96vw;
+
+    height:95vh;
+
+    margin:auto;
+
+    margin-top:2.5vh;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-rows:80px 1fr 70px;
+
+    border:1px solid rgba(0,229,255,.2);
+
+    background:#081422;
+
+}
+
+/* HEADER */
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 30px;
+
+    border-bottom:1px solid rgba(0,229,255,.15);
+
+}
+
+.logo h1{
+
+    font-family:Orbitron;
+
+    font-size:40px;
+
+    color:var(--cyan);
+
+}
+
+.logo span{
+
+    color:var(--muted);
+
+}
+
+#clock{
+
+    font-family:Orbitron;
+
+    color:var(--cyan);
+
+    font-size:18px;
+
+}
+
+/* MAIN */
+
+main{
+
+    display:grid;
+
+    grid-template-columns:360px 1fr;
+
+    gap:25px;
+
+    padding:25px;
+
+}
+
+/* PHOTO PANEL */
+
+.photo-panel{
+
+    background:var(--panel);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    border:1px solid rgba(0,229,255,.2);
+
+}
+
+.photo-panel h2{
+
+    font-family:Orbitron;
+
+    color:var(--cyan);
+
+    margin-bottom:20px;
+
+}
+
+.photo-box{
+
+    width:100%;
+
+    aspect-ratio:3/4;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    border:2px solid var(--cyan);
+
+    background:#000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.photo-box img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.photo-status{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:var(--green);
+
+    font-weight:600;
+
+}
+
+/* FORM PANEL */
+
+.form-panel{
+
+    background:var(--panel);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    border:1px solid rgba(0,229,255,.2);
+
+}
+
+.form-panel h2{
+
+    font-family:Orbitron;
+
+    color:var(--cyan);
+
+    margin-bottom:25px;
+
+}
+
+.input-group{
+
+    margin-bottom:20px;
+
+}
+
+label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:var(--muted);
+
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    border:1px solid rgba(0,229,255,.25);
+
+    background:#0E182A;
+
+    color:white;
+
+    font-size:15px;
+
+    outline:none;
+
+}
+
+input:focus,
+select:focus{
+
+    border-color:var(--cyan);
+
+    box-shadow:0 0 15px rgba(0,229,255,.4);
+
+}
+
+#saveBtn{
+
+    width:100%;
+
+    padding:16px;
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:linear-gradient(90deg,#00E5FF,#00FF88);
+
+    color:#05131E;
+
+    font-family:Orbitron;
+
+    font-size:15px;
+
+    letter-spacing:2px;
+
+    transition:.3s;
+
+}
+
+#saveBtn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+    0 0 20px rgba(0,229,255,.7);
+
+}
+
+footer{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-top:1px solid rgba(0,229,255,.15);
+
+}
+
+#statusText{
+
+    font-family:Orbitron;
+
+    color:var(--cyan);
+
+}
+
+@media(max-width:1000px){
+
+main{
+
+grid-template-columns:1fr;
+
+}
+
+.photo-panel{
+
+max-width:450px;
+
+margin:auto;
+
+}
+
+}
