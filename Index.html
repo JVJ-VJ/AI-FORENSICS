@@ -1,273 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI FORENSICS | Investigator Login</title>
 
-    <script>
-window.location.href = "login.html";
-</script>
-
-    <title>AI FORENSICS | Crime Investigation System</title>
-
-    <link rel="stylesheet" href="/css/styles.css">
-
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        window.firebaseApp = initializeApp(firebaseConfig);
+    </script>
+
+    <!-- MediaPipe -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/face_detection.js"></script>
 
 </head>
 
 <body>
 
-    <!-- Navigation -->
+<div class="dashboard">
+
+    <!-- ================= HEADER ================= -->
 
     <header>
 
         <div class="logo">
 
-            AI FORENSICS
-         ACI System
+            <h1>AI FORENSICS</h1>
 
-             Version 2.0
+            <span>Investigator Authentication System</span>
 
         </div>
 
-        <nav>
+        <div class="header-status">
 
-            <a href="index.html">Home</a>
+            <div class="status-item">
+                <span class="dot"></span>
+                SYSTEM ONLINE
+            </div>
 
-            <a href="casebrief.html">Case Brief</a>
+            <div id="clock">00:00:00</div>
 
-            <a href="suspects.html">Suspects</a>
-
-            <a href="evidence.html">Evidence</a>
-
-            <a href="ai.html">AI Lab</a>
-
-            <a href="verdict.html">Verdict</a>
-
-        </nav>
+        </div>
 
     </header>
 
+    <!-- ================= MAIN ================= -->
 
+    <main>
 
-    <div class="dashboard-buttons">
+        <!-- CAMERA PANEL -->
 
-    <button id="startBtn">
-        🔍 START INVESTIGATION
-    </button>
+        <section class="camera-panel">
 
+            <div class="panel-title">
+                LIVE BIOMETRIC CAMERA
+            </div>
 
-    <button onclick="location.href='investigators.html'">
-        👮 VIEW INVESTIGATORS
-    </button>
+            <div class="camera-container">
 
-</div>
+                <video
+                    id="video"
+                    autoplay
+                    playsinline
+                    muted>
+                </video>
 
+                <canvas id="overlay"></canvas>
 
+                <!-- Scanner Overlay -->
 
+                <div id="scanOverlay">
 
+                    <div id="scanShade"></div>
 
-    <!-- Hero Section -->
+                    <div id="scanLine"></div>
 
-    <section class="hero">
+                    <div id="faceBox"></div>
 
-        <div class="overlay">
+                    <div id="cameraFlash"></div>
 
-            <p class="status">
+                    <div id="scanText">
+                        WAITING FOR FACE
+                    </div>
 
-                ● SYSTEM STATUS : ACTIVE
+                    <div id="scanPercent">
+                        0%
+                    </div>
 
-            </p>
+                </div>
 
-            <h1>AI FORENSICS</h1>
+            </div>
 
-            <h2>COMMAND CENTER</h2>
-            
-<div class="investigator-info">
+            <div class="camera-footer">
 
-    <img id="investigatorPhoto" src="" alt="Investigator">
+                <button id="scanBtn">
+                    BEGIN BIOMETRIC SCAN
+                </button>
 
-    <div>
+            </div>
 
-        <h3 id="investigatorName">
-            Welcome Investigator
-        </h3>
+        </section>
 
-        <p>
-            ID :
-            <span id="investigatorID"></span>
-        </p>
+        <!-- RIGHT PANEL -->
 
-        <p>
-            Rank :
-            <span id="investigatorRank"></span>
-        </p>
+        <aside class="status-panel">
 
-        <p>
-            Department :
-            <span id="investigatorDepartment"></span>
-        </p>
+            <div class="panel-title">
+                AI SYSTEM STATUS
+            </div>
 
-        <p>
-            Email :
-            <span id="investigatorEmail"></span>
-        </p>
+            <div class="status-grid">
 
-    </div>
+                <div class="status-row">
+                    <span>Camera</span>
+                    <span id="cameraStatus">ONLINE</span>
+                </div>
 
-</div>
+                <div class="status-row">
+                    <span>Face Detection</span>
+                    <span id="faceStatus">WAITING</span>
+                </div>
 
-<!-- =========================
-ACTIVE INVESTIGATORS
-========================= -->
+                <div class="status-row">
+                    <span>AI Engine</span>
+                    <span id="aiStatus">READY</span>
+                </div>
 
-<section class="investigator-panel">
+                <div class="status-row">
+                    <span>Database</span>
+                    <span id="dbStatus">CONNECTED</span>
+                </div>
 
-    <h2>ACTIVE INVESTIGATORS</h2>
+                <div class="status-row">
+                    <span>Confidence</span>
+                    <span id="confidence">--%</span>
+                </div>
 
-    <div id="investigatorList">
-        Loading Investigators...
-    </div>
+                <div class="status-row">
+                    <span>FPS</span>
+                    <span id="fps">30</span>
+                </div>
 
-</section>
+            </div>
 
-</div>   <!-- overlay -->
-</section> <!-- hero -->
+            <hr>
 
-<!-- Dashboard -->
-<section class="dashboard">
+            <div class="analysis-title">
+                LIVE AI ANALYSIS
+            </div>
 
-        <div class="card">
+            <div id="analysis">
 
-            <h3>CASE ID</h3>
+                Waiting for investigator...
 
-            <p>AI-024</p>
+            </div>
 
-        </div>
+            <hr>
 
-        <div class="card">
+            <div class="investigator-card">
 
-            <h3>SUSPECTS</h3>
+                <h3>SESSION</h3>
 
-            <p>4</p>
+                <div class="info-row">
+                    <span>Status</span>
+                    <span id="sessionStatus">
+                        NOT AUTHENTICATED
+                    </span>
+                </div>
 
-        </div>
+                <div class="info-row">
+                    <span>Login Time</span>
+                    <span id="loginTime">
+                        --
+                    </span>
+                </div>
 
-        <div class="card">
+                <div class="info-row">
+                    <span>Photo</span>
+                    <span>
+                        Pending
+                    </span>
+                </div>
 
-            <h3>EVIDENCE</h3>
+            </div>
 
-            <p>6 FILES</p>
+        </aside>
 
-        </div>
+    </main>
 
-        <div class="card">
-
-            <h3>AI MODULES</h3>
-
-            <p>5</p>
-
-        </div>
-
-    </section>
-
-
-
-
-
-    <!-- Mission -->
-
-    <section class="mission">
-
-        <h2>MISSION OBJECTIVE</h2>
-
-        <p>
-
-            Your task is to investigate the disappearance of a confidential AI prototype.
-
-            Examine every suspect, analyze every clue,
-
-            use AI-powered forensic tools,
-
-            and submit your final verdict.
-
-        </p>
-
-    </section>
-
-
-
-
-
-    <!-- Features -->
-
-    <section class="features">
-
-        <div class="feature">
-
-            📹
-
-            <h3>CCTV Analysis</h3>
-
-            <p>Enhance surveillance footage using AI.</p>
-
-        </div>
-
-        <div class="feature">
-
-            📄
-
-            <h3>Document Scanner</h3>
-
-            <p>Recover hidden information from files.</p>
-
-        </div>
-
-        <div class="feature">
-
-            🎤
-
-            <h3>Voice Analysis</h3>
-
-            <p>Compare voice recordings using AI.</p>
-
-        </div>
-
-        <div class="feature">
-
-            🤖
-
-            <h3>Detective AI</h3>
-
-            <p>Ask intelligent investigation questions.</p>
-
-        </div>
-
-    </section>
-
-
-
-
-
-    <!-- Footer -->
+    <!-- ================= FOOTER ================= -->
 
     <footer>
 
-AI FORENSICS © 2026
+        <div id="footerMessage">
 
-Developed by BCA Block-B
+            Awaiting Investigator Authentication...
 
-Team work & Human Intelligence
+        </div>
+
+        <div class="progress">
+
+            <div id="progressBar"></div>
+
+        </div>
 
     </footer>
 
+</div>
 
+<!-- Hidden Canvas for Photo Capture -->
 
-<script type="module" src="/js/script.js"></script>
+<canvas
+    id="captureCanvas"
+    style="display:none;">
+</canvas>
+
+<!-- Main JavaScript -->
+
+<script src="js/login.js"></script>
 
 </body>
-
 </html>
