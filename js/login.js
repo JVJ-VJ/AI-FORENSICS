@@ -391,8 +391,7 @@ function capturePhoto(){
     // Wait 2 seconds
     setTimeout(() => {
 
-        window.location.href = "register.html";
-
+window.location.href = "register.html";
     }, 2000);
 
 }

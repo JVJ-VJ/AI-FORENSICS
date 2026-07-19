@@ -336,8 +336,7 @@ async(e)=>{
     setTimeout(()=>{
 
 
-        window.location.href =
-        "Index.html";
+    window.location.href = "home.html";
 
 
     },1500);
