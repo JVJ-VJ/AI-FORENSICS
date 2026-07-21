@@ -11,8 +11,6 @@ import { supabase } from "./supabase.js";
 
 const capturedImage = document.getElementById("capturedImage");
 
-const investigatorId = document.getElementById("investigatorId");
-
 const registerForm = document.getElementById("registerForm");
 
 const fullName = document.getElementById("fullName");
@@ -73,45 +71,10 @@ else{
 
 
 // =========================================
-// GENERATE ID
-// =========================================
-
-function generateID(){
-
-    let lastID =
-    localStorage.getItem("lastInvestigatorID");
-
-
-    if(lastID == null){
-
-        lastID = 2043;
-
-    }
-
-
-    lastID = Number(lastID) + 5;
-
-
-    localStorage.setItem(
-        "lastInvestigatorID",
-        lastID
-    );
-
-
-    investigatorId.value = lastID;
-
-}
-
-
-generateID();
-
-
-
-// =========================================
 // UPLOAD PHOTO TO SUPABASE STORAGE
 // =========================================
 
-async function uploadPhoto(id){
+async function uploadPhoto(){ 
 
 
     console.log("Starting photo upload");
@@ -132,8 +95,8 @@ async function uploadPhoto(id){
 
 
 
-    const fileName =
-    `investigator_${id}.png`;
+const fileName =
+`investigator_${Date.now()}_${Math.floor(Math.random()*100000)}.png`;
 
 
 
@@ -165,7 +128,7 @@ async function uploadPhoto(id){
             blob,
             {
                 contentType:"image/png",
-                upsert:true
+                upsert:false
             }
         );
 
@@ -241,48 +204,17 @@ async(e)=>{
 
 
 
-    const imageURL =
-    await uploadPhoto(
-        investigatorId.value
-    );
+    const imageURL = await uploadPhoto();
 
 
-
-    const investigator = {
-
-
-        id:
-        Number(investigatorId.value),
-
-
-        name:
-        fullName.value,
-
-
-        rank:
-        rank.value,
-
-
-        department:
-        department.value,
-
-
-        email:
-        email.value,
-
-
-        phone:
-        phone.value,
-
-
-        photo:
-        imageURL,
-
-
-        registered_at:
-        new Date()
-
-    };
+const investigator = {
+    name: fullName.value,
+    rank: rank.value,
+    department: department.value,
+    email: email.value,
+    phone: phone.value,
+    photo: imageURL
+};
 
 
 
@@ -293,12 +225,10 @@ async(e)=>{
 
 
 
-    const { error } =
-    await supabase
+const { data, error } = await supabase
     .from("investigators")
-    .insert([
-        investigator
-    ]);
+    .insert(investigator)
+    .select();
 
 
 
@@ -326,11 +256,10 @@ async(e)=>{
 
 
 
-    localStorage.setItem(
-        "currentInvestigator",
-        JSON.stringify(investigator)
-    );
-
+localStorage.setItem(
+    "currentInvestigator",
+    JSON.stringify(data[0])
+);
 
 
     setTimeout(()=>{
